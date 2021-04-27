@@ -1,4 +1,5 @@
 ﻿using Creational.AbstractFactory;
+using Creational.Builder;
 using Creational.Factory;
 using Creational.Singleton;
 using System;
@@ -13,6 +14,7 @@ namespace SoftwareDesignPatternsExplorer
             //CreationalSingleton();
             //CreationalFactory();
             //CreationalAbstractFactory();
+            CreationalBuilder();
 
             Console.ReadLine();
         }
@@ -47,6 +49,17 @@ namespace SoftwareDesignPatternsExplorer
             Console.WriteLine("Animal Factory Type : " + animalFactory.GetType().Name);
             animal = animalFactory.GetAnimal("Dog");
             Console.WriteLine(animal.GetType().Name + " saying " + animal.Voice());
+        }
+        public static void CreationalBuilder()
+        {
+            Report report;
+            ReportDirector reportDirector = new ReportDirector();
+            PDFReport pdfReport = new PDFReport();
+            report = reportDirector.MakeReport(pdfReport);
+            report.DisplayReport();
+            ExcelReport excelReport = new ExcelReport();
+            report = reportDirector.MakeReport(excelReport);
+            report.DisplayReport();
         }
     }
 }
