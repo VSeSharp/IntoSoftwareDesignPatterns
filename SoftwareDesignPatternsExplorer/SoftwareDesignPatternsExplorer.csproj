@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Creational.AbstractFactory\Creational.AbstractFactory.csproj" />
     <ProjectReference Include="..\Creational.Factory\Creational.Factory.csproj" />
     <ProjectReference Include="..\Creational.Singleton\Creational.Singleton.csproj" />
   </ItemGroup>

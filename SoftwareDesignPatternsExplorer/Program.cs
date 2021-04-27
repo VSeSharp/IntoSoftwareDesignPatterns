@@ -1,4 +1,5 @@
-﻿using Creational.Factory;
+﻿using Creational.AbstractFactory;
+using Creational.Factory;
 using Creational.Singleton;
 using System;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SoftwareDesignPatternsExplorer
         {
             //CreationalSingleton();
             //CreationalFactory();
+            //CreationalAbstractFactory();
 
             Console.ReadLine();
         }
@@ -31,6 +33,20 @@ namespace SoftwareDesignPatternsExplorer
                 Console.WriteLine("CreditLimit: " + card.GetCreditLimit());
                 Console.WriteLine("AnnualCharge:" + card.GetAnnualCharge());
             }
+        }
+
+        public static void CreationalAbstractFactory()
+        {
+            Animal animal = null;
+            AnimalFactory animalFactory = null;
+            animalFactory = AnimalFactory.CreateAnimalFactory("Sea");
+            Console.WriteLine("Animal Factory Type : " + animalFactory.GetType().Name);
+            animal = animalFactory.GetAnimal("Octopus");
+            Console.WriteLine(animal.GetType().Name + " saying " + animal.Voice());
+            animalFactory = AnimalFactory.CreateAnimalFactory("Land");
+            Console.WriteLine("Animal Factory Type : " + animalFactory.GetType().Name);
+            animal = animalFactory.GetAnimal("Dog");
+            Console.WriteLine(animal.GetType().Name + " saying " + animal.Voice());
         }
     }
 }
